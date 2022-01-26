@@ -14,6 +14,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+const toppers = [];
+
+grades.forEach((cijfer) => {
+    if (cijfer >= 8) {
+        toppers.push(cijfer);
+    }
+});
+
+console.log(toppers.length);
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -27,8 +37,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
-
-
+function cumLaude(grades) {
+    let cumlaude = [];
+    grades.forEach((cijfer) => {
+        if (cijfer >= 8) {
+            cumlaude.push(cijfer);
+        }
+    });
+    return cumlaude.length;
+}
+console.log(cumLaude(grades));
+console.log(cumLaude([6, 4, 5]));
+console.log(cumLaude([8, 9, 4, 6, 10]));
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,6 +62,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let gemiddelde = 0;
+
+grades.forEach((cijfer) => {
+    gemiddelde += cijfer;
+});
+
+console.log(gemiddelde / grades.length);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -53,6 +80,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function gemiddeldCijfer(grades) {
+    let gemiddelde = 0;
+    grades.forEach((cijfer) => {
+        gemiddelde += cijfer;
+    });
+
+    return gemiddelde / grades.length;
+}
+
+console.log(gemiddeldCijfer(grades));
+console.log(gemiddeldCijfer([6, 4, 5]));
+console.log(gemiddeldCijfer([8, 9, 4, 6, 10]));
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
